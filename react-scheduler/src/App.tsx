@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
+import { get_current_date } from './utils';
 import './App.css';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
+        <p>show current date: {get_current_date()}</p>
         <a
           className="App-link"
           href="https://reactjs.org"
