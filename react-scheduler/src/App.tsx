@@ -1,25 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
+import { CustomScheduler } from './components/Scheduler';
 import { get_current_date } from './utils';
 import './App.css';
 
 function App() {
+  const current_date = get_current_date();
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <p>show current date: {get_current_date()}</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>show current date: {current_date}</p>
+        <CustomScheduler current_date={current_date} />
       </header>
     </div>
   );
