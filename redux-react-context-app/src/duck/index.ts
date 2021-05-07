@@ -7,7 +7,7 @@ export type {
   LoginUser,
 };
 
-const Selectors = () => {
+export const Selectors = () => {
   const app = AppSelectors();
 
   return {
@@ -15,7 +15,7 @@ const Selectors = () => {
   };
 };
 
-const Actions = () => {
+export const Actions = () => {
   const dispatch = useDispatch();
   const callback = useCallback((action: () => void) => {
     dispatch(action());
@@ -26,9 +26,4 @@ const Actions = () => {
     callback,
     ...AppActions,
   };
-};
-
-export {
-  Selectors,
-  Actions,
 };

@@ -1,10 +1,5 @@
-import { IApp, Action } from './index';
-
-export const ACTIONS = {
-  LOADING: 'LOADING',
-  UNLOADING: 'UNLOADING',
-  FETCH_LOGIN_USER: 'FETCH_LOGIN_USER',
-} as const;
+import { IApp, Action } from './types';
+import { ACTIONS } from './actions';
 
 const initialState: IApp = {
   loading: false,

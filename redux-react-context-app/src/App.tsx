@@ -6,9 +6,10 @@ import { Selectors, Actions } from './duck';
 function App() {
   const { state } = useCustomReducer();
   const { loading } = Selectors();
-  const { callback, set_loading } = Actions();
+  const { callback, set_loading, set_unloading } = Actions();
 
-  const onClick = () => callback(set_loading);
+  const onClickLoading = () => callback(set_loading);
+  const onClickUnLoading = () => callback(set_unloading);
 
   return (
     <AppContext.Provider value={state}>
@@ -17,7 +18,8 @@ function App() {
 
       <p>{loading.toString()}</p>
       <p>
-        <button onClick={onClick}>loading</button>
+        <button onClick={onClickLoading}>loading</button>
+        <button onClick={onClickUnLoading}>unloading</button>
       </p>
     </AppContext.Provider>
   );

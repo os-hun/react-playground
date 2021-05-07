@@ -1,6 +1,6 @@
-import { ACTIONS } from './index';
+import { ACTIONS } from './actions';
 
-type LoginUser = {
+export type LoginUser = {
   name: string;
   email: string;
   screen_name: string;
@@ -8,25 +8,18 @@ type LoginUser = {
   image: string;
 }
 
-type Toast = {
+export type Toast = {
   status: 'success' | 'error';
   message: string;
 }
 
-type IApp = {
+export type IApp = {
   loading: boolean;
   login_user: LoginUser | null;
   toast: Toast | null;
 }
 
-type Action = {
+export type Action = {
   type: keyof typeof ACTIONS;
   payload: any;
 };
-
-export type {
-  IApp,
-  LoginUser,
-  Toast,
-  Action,
-}
