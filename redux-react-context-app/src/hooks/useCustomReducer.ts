@@ -1,4 +1,4 @@
-import { useReducer, useCallback } from 'react';
+import { useReducer } from 'react';
 import appReducer from '../context/appReducer';
 
 export const useCustomReducer = () => {
@@ -7,15 +7,5 @@ export const useCustomReducer = () => {
     appReducer.initialState,
   );
 
-  const setUser = useCallback(() => {
-    dispatch({
-      type: 'setUser',
-      payload: {
-        name: 'test user',
-        email: 'test@example.com'
-      },
-    })
-  }, [dispatch]);
-
-  return { state, dispatch, setUser };
+  return { state, dispatch };
 };

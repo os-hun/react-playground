@@ -1,16 +1,11 @@
 import { useCustomContext } from '../hooks/useCustomContext';
 
 export const Wrapper = () => {
-  const { user } = useCustomContext();
+  const { is_logged_in } = useCustomContext();
 
   return (
     <div>
-      {user && (
-        <div>
-          {user.name}<br/>
-          {user.email}
-        </div>
-      )}
+      {is_logged_in}
     </div>
   );
 }

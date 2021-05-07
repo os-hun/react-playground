@@ -1,14 +1,9 @@
-import { useEffect } from 'react';
 import { Wrapper } from './components/Wrapper';
 import { AppContext } from './context/appContext';
 import { useCustomReducer } from './hooks/useCustomReducer';
 
 function App() {
-  const { state, setUser } = useCustomReducer();
-
-  useEffect(() => {
-    setUser();
-  }, [setUser]);
+  const { state } = useCustomReducer();
 
   return (
     <AppContext.Provider value={state}>
