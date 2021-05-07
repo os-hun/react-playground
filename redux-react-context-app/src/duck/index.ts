@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-import { AppSelectors, AppActions, IApp, LoginUser } from './app';
+import { AppSelectors, AppActions, AppOperations, IApp, LoginUser } from './app';
 
 export type {
   IApp,
@@ -25,5 +25,6 @@ export const Actions = () => {
     dispatch,
     callback,
     ...AppActions,
+    ...AppOperations,
   };
 };

@@ -4,8 +4,8 @@ export type LoginUser = {
   name: string;
   email: string;
   screen_name: string;
-  description: string;
-  image: string;
+  description: string | null;
+  image: string | null;
 }
 
 export type Toast = {
