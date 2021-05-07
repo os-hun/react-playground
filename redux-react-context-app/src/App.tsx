@@ -1,4 +1,5 @@
 import { useReducer, useEffect } from 'react';
+import { Wrapper } from './components/Wrapper';
 import { AppContext } from './context/appContext';
 import appReducer from './context/appReducer';
 
@@ -17,10 +18,8 @@ function App() {
 
   return (
     <AppContext.Provider value={state}>
-      <div>
-        <h1>app context</h1>
-        {JSON.stringify(state)}
-      </div>
+      <h1>Context Test</h1>
+      <Wrapper />
     </AppContext.Provider>
   );
 }

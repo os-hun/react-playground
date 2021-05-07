@@ -1,16 +1,16 @@
 type User = {
   name: string;
   email: string;
-} | {}
+}
 
-interface IApp {
-  user: User;
+export interface IApp {
+  user?: User;
   loading: boolean;
   is_logged_in: boolean;
 }
 
 const initialState: IApp = {
-  user: {},
+  user: undefined,
   loading: false,
   is_logged_in: false,
 }
@@ -26,4 +26,7 @@ function reducer(state = initialState, action: any) {
 
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export default { initialState, reducer };
+export default {
+  initialState,
+  reducer,
+};
