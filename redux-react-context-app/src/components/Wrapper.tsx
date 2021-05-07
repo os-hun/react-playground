@@ -5,7 +5,12 @@ export const Wrapper = () => {
 
   return (
     <div>
-      {JSON.stringify(user)}
+      {user && (
+        <div>
+          {user.name}<br/>
+          {user.email}
+        </div>
+      )}
     </div>
   );
 }

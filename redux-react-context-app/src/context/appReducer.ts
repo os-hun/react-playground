@@ -5,20 +5,25 @@ type User = {
 
 export interface IApp {
   user?: User;
-  loading: boolean;
   is_logged_in: boolean;
+  check_login: () => boolean;
 }
 
 const initialState: IApp = {
-  user: undefined,
-  loading: false,
   is_logged_in: false,
+  check_login: () => {
+    console.log('hello world');
+    return true;
+  },
 }
 
 function reducer(state = initialState, action: any) {
   switch (action.type) {
     case 'setUser':
       return { ...state, user: action.payload, is_logged_in: true };
+    case 'check_login_status':
+      const payload = action.payload;
+      return { ...state, is_logged_in: payload };
     default:
       return state;
   }

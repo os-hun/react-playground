@@ -1,20 +1,14 @@
-import { useReducer, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Wrapper } from './components/Wrapper';
 import { AppContext } from './context/appContext';
-import appReducer from './context/appReducer';
+import { useCustomReducer } from './hooks/useCustomReducer';
 
 function App() {
-  const [state, dispatch] = useReducer(appReducer.reducer, appReducer.initialState);
+  const { state, setUser } = useCustomReducer();
 
   useEffect(() => {
-    dispatch({
-      type: 'setUser',
-      payload: {
-        name: 'test user',
-        email: 'test@example.com'
-      },
-    });
-  }, []);
+    setUser();
+  }, [setUser]);
 
   return (
     <AppContext.Provider value={state}>
