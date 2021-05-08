@@ -1,11 +1,8 @@
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-import { AppSelectors, AppActions, AppOperations, IApp, LoginUser } from './app';
+import { AppSelectors, AppActions, AppOperations } from './app';
 
-export type {
-  IApp,
-  LoginUser,
-};
+export type { IApp, LoginUser } from './app';
 
 export const Selectors = () => {
   const app = AppSelectors();
