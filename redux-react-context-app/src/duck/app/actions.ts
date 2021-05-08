@@ -2,8 +2,7 @@ import { LoginUser, Toast } from './types';
 
 export const ACTIONS = {
   FETCH_LOGIN_USER: 'FETCH_LOGIN_USER',
-  LOADING: 'LOADING',
-  UNLOADING: 'UNLOADING',
+  IS_LOADING: 'IS_LOADING',
   SET_TOAST: 'SET_TOAST',
   REMOVE_TOAST: 'REMOVE_TOAST',
 } as const;
@@ -15,16 +14,11 @@ export function fetch_login_user_action(login_user: LoginUser) {
   }
 }
 
-export function set_loading_action() {
+export function set_loading_action(is_loading = false) {
   return {
-    type: ACTIONS.LOADING,
+    type: ACTIONS.IS_LOADING,
+    payload: is_loading,
   };
-}
-
-export function set_unloading_action() {
-  return {
-    type: ACTIONS.UNLOADING,
-  }
 }
 
 export function set_toast_action(toast: Toast) {

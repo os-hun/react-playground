@@ -15,7 +15,7 @@ export const Selectors = () => {
 export const Actions = () => {
   const dispatch = useDispatch();
   const callback = useCallback((action: () => void) => {
-    dispatch(AppActions.set_loading_action());
+    dispatch(AppActions.set_loading_action(true));
     dispatch(action());
   }, [dispatch]);
 

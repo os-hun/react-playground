@@ -12,10 +12,9 @@ export function appReducer(state = initialState, action: Action) {
     case ACTIONS.FETCH_LOGIN_USER:
       const login_user = action.payload;
       return { ...state, login_user };
-    case ACTIONS.LOADING:
-      return { ...state, loading: true };
-    case ACTIONS.UNLOADING:
-      return { ...state, loading: false };
+    case ACTIONS.IS_LOADING:
+      const loading = action.payload;
+      return { ...state, loading };
     case ACTIONS.SET_TOAST:
       const toast = action.payload;
       return { ...state, toast };

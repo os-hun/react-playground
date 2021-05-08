@@ -1,7 +1,7 @@
 import axios from 'axios';
 import aspida from '@aspida/axios';
 import api from './api/$api';
-import { set_toast_action, set_unloading_action } from './duck/app/actions';
+import { set_toast_action, set_loading_action } from './duck/app/actions';
 
 export const interceptor = (store: any) => {
   const onSuccess = (response: any) => {
@@ -12,7 +12,7 @@ export const interceptor = (store: any) => {
       message: data.message,
       is_open: data.message !== '',
     }));
-    store.dispatch(set_unloading_action());
+    store.dispatch(set_loading_action());
 
     return response
   };
@@ -25,7 +25,7 @@ export const interceptor = (store: any) => {
       message: data.message,
       is_open: true,
     }));
-    store.dispatch(set_unloading_action());
+    store.dispatch(set_loading_action());
 
     return Promise.reject(error);
   }
