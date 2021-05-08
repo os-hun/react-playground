@@ -8,8 +8,9 @@ export const interceptor = (store: any) => {
     const { data } = response;
 
     store.dispatch(set_toast_action({
-      status: 'error',
+      status: 'success',
       message: data.message,
+      is_open: data.message !== '',
     }));
     store.dispatch(set_unloading_action());
 
@@ -22,6 +23,7 @@ export const interceptor = (store: any) => {
     store.dispatch(set_toast_action({
       status: 'error',
       message: data.message,
+      is_open: true,
     }));
     store.dispatch(set_unloading_action());
 

@@ -11,6 +11,7 @@ export type LoginUser = {
 export type Toast = {
   status: 'success' | 'error';
   message: string;
+  is_open: boolean;
 }
 
 export type IApp = {
