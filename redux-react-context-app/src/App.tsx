@@ -5,7 +5,7 @@ import { Selectors, Actions } from './duck';
 
 function App() {
   const { state } = useCustomReducer();
-  const { loading, login_user } = Selectors();
+  const { loading, login_user, toast } = Selectors();
   const { callback, fetch_login_user } = Actions();
 
   const onClick = () => callback(fetch_login_user);
@@ -17,6 +17,7 @@ function App() {
 
       <p>{loading.toString()}</p>
       <p>{JSON.stringify(login_user)}</p>
+      <p>{JSON.stringify(toast)}</p>
       <p>
         <button onClick={onClick}>fetch</button>
       </p>

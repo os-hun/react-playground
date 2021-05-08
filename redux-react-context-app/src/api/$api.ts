@@ -3,11 +3,14 @@
 import { AspidaClient } from 'aspida'
 // prettier-ignore
 import { Methods as Methods0 } from './users'
+// prettier-ignore
+import { Methods as Methods1 } from './v1/u/me'
 
 // prettier-ignore
 const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
-  const prefix = (baseURL === undefined ? 'https://example.com/api' : baseURL).replace(/\/$/, '')
+  const prefix = (baseURL === undefined ? 'http://localhost:5000' : baseURL).replace(/\/$/, '')
   const PATH0 = '/users'
+  const PATH1 = '/v1/u/me'
   const GET = 'GET'
 
   return {
@@ -17,6 +20,17 @@ const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
       $get: (option?: { config?: T }) =>
         fetch<Methods0['get']['resBody']>(prefix, PATH0, GET, option).json().then(r => r.body),
       $path: () => `${prefix}${PATH0}`
+    },
+    v1: {
+      u: {
+        me: {
+          get: (option?: { config?: T }) =>
+            fetch<Methods1['get']['resBody']>(prefix, PATH1, GET, option).json(),
+          $get: (option?: { config?: T }) =>
+            fetch<Methods1['get']['resBody']>(prefix, PATH1, GET, option).json().then(r => r.body),
+          $path: () => `${prefix}${PATH1}`
+        }
+      }
     }
   }
 }

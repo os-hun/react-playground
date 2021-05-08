@@ -9,13 +9,18 @@ const initialState: IApp = {
 
 export function appReducer(state = initialState, action: Action) {
   switch (action.type) {
-    case ACTIONS.LOADING:
-      return { ...state, loading: true }
-    case ACTIONS.UNLOADING:
-      return { ...state, loading: false }
     case ACTIONS.FETCH_LOGIN_USER:
-      const payload = action.payload;
-      return { ...state, login_user: payload };
+      const login_user = action.payload;
+      return { ...state, login_user };
+    case ACTIONS.LOADING:
+      return { ...state, loading: true };
+    case ACTIONS.UNLOADING:
+      return { ...state, loading: false };
+    case ACTIONS.SET_TOAST:
+      const toast = action.payload;
+      return { ...state, toast };
+    case ACTIONS.REMOVE_TOAST:
+      return { ...state, toast: null };
     default:
       return state;
   }

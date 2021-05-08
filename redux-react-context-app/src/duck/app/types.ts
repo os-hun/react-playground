@@ -21,5 +21,5 @@ export type IApp = {
 
 export type Action = {
   type: keyof typeof ACTIONS;
-  payload: any;
+  payload?: any;
 };
