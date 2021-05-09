@@ -21,7 +21,7 @@ export function set_loading_action(is_loading = false) {
   };
 }
 
-export function set_toast_action(toast: Toast) {
+export function set_toast_action(toast: Toast | null) {
   return {
     type: ACTIONS.SET_TOAST,
     payload: toast,

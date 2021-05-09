@@ -3,7 +3,7 @@ import {
   set_toast_action,
   remove_toast_action,
 } from './actions';
-import { fetch_login_user } from './operations';
+import { fetch_login_user, set_toast } from './operations';
 
 export { appReducer } from './reducers';
 export { AppSelectors } from './selectors';
@@ -18,4 +18,5 @@ export const AppActions = {
 
 export const AppOperations = {
   fetch_login_user,
+  set_toast,
 }

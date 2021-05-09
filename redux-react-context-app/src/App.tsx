@@ -1,4 +1,5 @@
 import { Wrapper } from './components/Wrapper';
+import { ToastBoundary } from './components/ToastBoundary';
 import { AppContext } from './context/appContext';
 import { useCustomReducer } from './hooks/useCustomReducer';
 import { Selectors, Actions } from './duck';
@@ -12,15 +13,17 @@ function App() {
 
   return (
     <AppContext.Provider value={state}>
-      <h1>Context Test</h1>
-      <Wrapper />
+      <ToastBoundary>
+        <h1>Context Test</h1>
+        <Wrapper />
 
-      <p>{loading.toString()}</p>
-      <p>{JSON.stringify(login_user)}</p>
-      <p>{JSON.stringify(toast)}</p>
-      <p>
-        <button onClick={onClick}>fetch</button>
-      </p>
+        <p>{loading.toString()}</p>
+        <p>{JSON.stringify(login_user)}</p>
+        <p>{JSON.stringify(toast)}</p>
+        <p>
+          <button onClick={onClick}>fetch</button>
+        </p>
+      </ToastBoundary>
     </AppContext.Provider>
   );
 }

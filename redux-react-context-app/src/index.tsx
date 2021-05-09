@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './utils/reportWebVitals';
 import { Provider } from 'react-redux';
+import { ToastProvider } from 'react-toast-notifications';
 import { store } from './store';
 import { interceptor } from './client';
 import './styles/index.css';
@@ -10,11 +11,11 @@ import './styles/index.css';
 interceptor(store);
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
+  <Provider store={store}>
+    <ToastProvider>
       <App />
-    </Provider>
-  </React.StrictMode>,
+    </ToastProvider>
+  </Provider>,
   document.getElementById('root')
 );
 

@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
+import { Dispatch } from 'redux';
 import { AppSelectors, AppActions, AppOperations } from './app';
 
 export type { IApp, LoginUser } from './app';
@@ -14,10 +15,13 @@ export const Selectors = () => {
 
 export const Actions = () => {
   const dispatch = useDispatch();
-  const callback = useCallback((action: () => void) => {
-    dispatch(AppActions.set_loading_action(true));
-    dispatch(action());
-  }, [dispatch]);
+  const callback = useCallback((
+    action: () => (dispatch: Dispatch) => void) => {
+      dispatch(AppActions.set_loading_action(true));
+      dispatch(action());
+    },
+    [dispatch]
+  );
 
   return {
     dispatch,
