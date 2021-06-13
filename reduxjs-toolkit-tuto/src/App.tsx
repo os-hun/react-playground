@@ -6,6 +6,7 @@ import {
   incrementByAmount,
   selectCount,
 } from './reducers/count';
+import { useCountContext } from './contexts';
 import './App.css';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
   const dispatch = useAppDispatch();
   const [incrementAmount, setIncrementAmount] = useState(2);
   const onSubmit = () => dispatch(incrementByAmount(incrementAmount));
+  const { contextCount, incrementCount, decrementCount } = useCountContext();
 
   return (
     <div className="App">
@@ -33,6 +35,15 @@ function App() {
           <button onClick={onSubmit}>
             Add Amount
           </button>
+        </div>
+
+        <div>
+          <p>{contextCount}</p>
+        </div>
+
+        <div>
+          <button onClick={incrementCount}>+</button>
+          <button onClick={decrementCount}>-</button>
         </div>
       </header>
     </div>

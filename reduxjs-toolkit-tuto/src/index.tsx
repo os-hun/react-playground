@@ -4,12 +4,17 @@ import './index.css';
 import App from './App';
 import { store } from './app/store';
 import { Provider } from 'react-redux';
+import { CounterProvider } from './contexts';
 import reportWebVitals from './reportWebVitals';
+
+const INITIAL_COUNT = 2;
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <CounterProvider initialCount={INITIAL_COUNT}>
+        <App />
+      </CounterProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
