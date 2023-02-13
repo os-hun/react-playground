@@ -40,3 +40,15 @@
     transform: rotate(360deg);
   }
 }
+
+.drop-zone-container {
+  padding: 0;
+}
+
+.drop-zone-content {
+  padding: 0!important;
+}
+
+.drop-zone {
+  padding: 50px;
+}
